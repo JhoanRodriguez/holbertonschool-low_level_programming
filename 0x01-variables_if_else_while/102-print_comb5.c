@@ -9,40 +9,37 @@
  */
 int main(void)
 {
-  int w;
-  int x;
-  int y;
-  int z;
-  for (w = '0'; w <= '9'; w++)
-    {
-      for (x = '0'; x <= '9'; x++)
-	{
-	  for (y = '0'; y <= '9'; y++)
-	    {
-	      for (z = '1'; z = '9'; z++)
-		{
-		  if (w != y && x != z && x)
-		    {
-		      if (w > y || x > z)
-			{
-			  continue;
-			}
-		      putchar(w);
-		      putchar(x);
-		      putchar(' ');
-		      putchar(y);
-		      putchar(z);
-		      if (w == '9' && x == '8' && y == '9' && z == '9')
-			{
-			  break;
-			}
-		      putchar(',');
-		      putchar(' ');
-		    }
-		}
-	    }
-	}
-    }
-  putchar('\n');
-  return (0);
+int w;
+int x;
+int y;
+int z;
+for (w = '0'; w <= '9'; w++)
+{
+for (x = '0'; x <= '9'; x++)
+{
+for (y = '0'; y <= '9'; y++)
+{
+for (z = '1'; z <= '9'; z++)
+{
+if ((w + x) >= (y + z))
+{  
+continue;
+}
+putchar(w);
+putchar(x);
+putchar(' ');
+putchar(y);
+putchar(z);
+if (w == '9' && x == '8' && y == '9' && z == '9')
+{
+break;
+}
+putchar(',');
+putchar(' ');
+}
+}
+}
+}
+putchar('\n');
+return (0);
 }
