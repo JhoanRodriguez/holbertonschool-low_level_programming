@@ -22,7 +22,7 @@ for (y = '0'; y <= '9'; y++)
 for (z = '1'; z <= '9'; z++)
 {
 if ((w + x) >= (y + z))
-{  
+{
 continue;
 }
 putchar(w);
