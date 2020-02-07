@@ -9,41 +9,25 @@
  */
 int main(void)
 {
-int w;
-int x;
-int y;
-int z;
-for (w = '0'; w <= '9'; w++)
-{
-for (x = '0'; x <= '9'; x++)
-{
-for (y = '0'; y <= '9'; y++)
-{
-for (z = '0'; z <= '9'; z++)
-{
-if (w > y || x > z)
-{
-continue;
-}
-if (w == y && x == z)
-{
-continue;
-}
-putchar(w);
-putchar(x);
-putchar(' ');
-putchar(y);
-putchar(z);
-if (w == '9' && x == '8' && y == '9' && z == '9')
-{
-break;
-}
-putchar(',');
-putchar(' ');
-}
-}
-}
-}
-putchar('\n');
-return (0);
+	int x;
+	int y;
+
+	for (x = 0; x < 100; x++)
+	{
+		for (y = x + 1; y < 100; y++)
+		{
+			putchar(x / 10 + '0');
+			putchar(x % 10 + '0');
+			putchar(' ');
+			putchar(y % 10 + '0');
+			putchar(y % 10 + '0');
+			if (x != 98 || y != 99)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+		}
+	}
+	putchar('\n');
+	return (0);
 }
