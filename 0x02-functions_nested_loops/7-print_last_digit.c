@@ -1,15 +1,17 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
- * _print_sign - Print alphabet in lowercase 10 times
- * Return: 0
- * @n: char type letter
+ * print_last_digit - Print the last digit
+ * @x: Number that is going to be splited
+ * Return: Return the last digit
  */
 int print_last_digit(int x)
 {
-	if (x <= 0)
-	{
-		x = x * -1;	
-	}
-	return ( x % 10 + '0');
+	int y;
+
+	y = x % 10;
+
+	if (y < 0)
+		y = y * -1;
+	_putchar (y + '0');
+	return (y);
 }
