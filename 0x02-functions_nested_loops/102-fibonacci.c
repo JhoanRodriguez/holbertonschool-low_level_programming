@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-	float x[50];
+	long int x[50];
 	int y;
 
 	x[0] = 0;
@@ -19,11 +19,11 @@ int main(void)
 		x[y] = x[y - 1] + x[y - 2];
 		if (y != 51)
 		{
-			printf("%.f, ", x[y]);
+			printf("%lu, ", x[y]);
 		}
 		else
 		{
-			printf("%.f", x[y]);
+			printf("%lu", x[y]);
 		}
 	}
 	printf("\n");
