@@ -16,12 +16,12 @@ int main(void)
 
 	for (y = 2; y <= 51; y++)
 	{
-		x[y] = x[y-1] + x[y-2];
+		x[y] = x[y - 1] + x[y - 2];
 		if (y != 51)
 		{
 			printf("%.f, ", x[y]);
 		}
-		else 
+		else
 		{
 			printf("%.f", x[y]);
 		}
