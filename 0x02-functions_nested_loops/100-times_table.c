@@ -5,34 +5,49 @@
  * times_table - Show the multiplication tables
  * Return: Return nothing
  */
-void times_table(void)
+void print_times_table(int n)
 {
 	int x;
 	int y;
+	int z;
 
-	for (x = 0; x <= 9; x++)
+	if (n >= 0 || n <= 15)
 	{
-		for (y = 0; y <= 9; y++)
+		for (x = 0; x <= n; x++)
 		{
-			if ((x * y) < 10)
+			for (y = 0; y <= n; y++)
 			{
-				if (y != 0)
+				z = x * y;
+
+				if (z < 10)
+				{
+					if (y != 0)
+					{
+						_putchar (' ');
+						_putchar (' ');
+					}
+					_putchar (z + '0');
+				}
+				else if (z < 100)
 				{
 					_putchar (' ');
+					_putchar ((z / 10) + '0');
+					_putchar ((z % 10) + '0');
 				}
-				_putchar ((x * y) + '0');
+				else 
+				{
+					_putchar(z / 100 + '0');
+					_putchar((z / 10 % 10) + '0');
+					_putchar(z % 10 + '0');
+				}
+				if (y != n)
+				{
+					_putchar (',');
+					_putchar (' ');
+				}
 			}
-			else
-			{
-				_putchar (((x * y) / 10) + '0');
-				_putchar (((x * y) % 10) + '0');
-			}
-			if (y != 9)
-			{
-				_putchar (',');
-				_putchar (' ');
-			}
+			_putchar('\n');
 		}
-		_putchar ('\n');
 	}
+	_putchar ('\n');
 }
