@@ -19,11 +19,11 @@ int main(void)
 		x[y] = x[y - 1] + x[y - 2];
 		if (y != 51)
 		{
-			printf("%ld, ", x[y]);
+			printf("%li, ", x[y]);
 		}
 		else
 		{
-			printf("%ld", x[y]);
+			printf("%li", x[y]);
 		}
 	}
 	printf("\n");
