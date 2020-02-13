@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * print_square - Print the last digit
- * @zize: Number that is going to be splited
+ * @size: Number that is going to be splited
  * Return: Return the last digit
  */
 void print_square(int size)
@@ -19,6 +19,6 @@ void print_square(int size)
 				_putchar ('#');
 			}
 			_putchar ('\n');
-		}	
+		}
 	}
 }
