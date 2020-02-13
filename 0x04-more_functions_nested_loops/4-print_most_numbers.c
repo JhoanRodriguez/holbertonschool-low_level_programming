@@ -4,7 +4,7 @@
  * Number that is going to be splited
  * Return: Return the last digit
  */
-void print_most_numbers(void);
+void print_most_numbers(void)
 {
 	int x;
 
