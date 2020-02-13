@@ -3,7 +3,7 @@
  * print_numbers - Print the last digit
  * Return: Return the last digit
  */
-void print_numbers(void);
+void print_numbers(void)
 {
 	int x;
 
