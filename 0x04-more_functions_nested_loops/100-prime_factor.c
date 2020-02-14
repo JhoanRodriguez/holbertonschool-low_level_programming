@@ -1,16 +1,17 @@
-#include "holberton.h"
+#include <stdio.h>
 /**
  * main - Print the last digit
  * Return: Return the last digit
  */
-void main(void)
+int main(void)
 {
 	long int x = 612852475143;
 
-	while ( x % 2 == 0)
+	while (x % 2 != 0)
 	{
 		x = x % 2;
 	}
-	printf("%d", x);
+	printf("%ld", x);
 	printf("\n");
+	return (0);
 }
