@@ -5,11 +5,12 @@
  */
 void main(void)
 {
-	int x = 612852475143;
+	long int x = 612852475143;
 
 	while ( x % 2 == 0)
 	{
 		x = x % 2;
 	}
 	printf("%d", x);
+	printf("\n");
 }
