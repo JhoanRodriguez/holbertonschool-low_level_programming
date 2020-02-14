@@ -7,11 +7,14 @@ int main(void)
 {
 	long int x = 612852475143;
 
-	while (x % 2 != 0)
+	for (y = 2; y < x; y++)
 	{
-		x = x % 2;
+		while (x % y == 0)
+		{
+			x = x / 2;
+		}
 	}
-	printf("%ld", x);
-	printf("\n");
-	return (0);
+		printf("%ld", x);
+		printf("\n");
+		return (0);
 }
