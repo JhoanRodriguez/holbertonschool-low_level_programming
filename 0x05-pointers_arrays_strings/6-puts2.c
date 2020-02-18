@@ -14,7 +14,7 @@ void puts2(char *str)
 	{
 		c++;
 	}
-	for (x = 0; x <= c; x + = 2)
+	for (x = 0; x <= c; x++)
 	{
 		if (x % 2 == 0)
 		{
