@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * print_rev - Print the last digit
  * @s: Number that is going to be splited
@@ -12,8 +13,7 @@ void print_rev(char *s)
 	{
 		c++;
 	}
-
-	while (s[c - 1] != '\0')
+	while (c >= 0)
 	{
 		_putchar (s[c]);
 		c--;
