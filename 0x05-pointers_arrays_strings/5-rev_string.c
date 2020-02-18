@@ -48,13 +48,13 @@ void rev_string(char *s)
 	{
 		return;
 	}
-	size = _strlen(s) - 1;
+	size = _strlen(s);
 	if (size < 2)
 	{
 		return;
 	}
 	for (x = 0; x < size / 2; x++)
 	{
-		swap_char(s + x, s + size - x);
+		swap_char(s + x, s + size - x - 1);
 	}
 }
