@@ -1,8 +1,8 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * print_rev - Print the last digit
- * @s: Number that is going to be splited
+ * puts2 - Print the last digit
+ * @str: Number that is going to be splited
  * Return: Return the last digit
  */
 void puts2(char *str)
@@ -14,7 +14,7 @@ void puts2(char *str)
 	{
 		c++;
 	}
-	for ( x = 0 ;x <= c; x+=2)
+	for (x = 0; x <= c; x + = 2)
 	{
 		printf("%c", str[x]);
 	}
