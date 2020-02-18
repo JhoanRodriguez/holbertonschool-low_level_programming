@@ -38,12 +38,17 @@ int _strlen(char *s)
  * @s: Number that is going to be splited
  * Return: Return the last digit
  */
+
 void rev_string(char *s)
 {
 	int size;
 	int x;
 
 	size = _strlen(s) - 1;
+	if (size < 2)
+	{
+		return;
+	}
 	for (x = 0; x < size / 2; x++)
 	{
 		swap_char(s + x, s + size - x);
