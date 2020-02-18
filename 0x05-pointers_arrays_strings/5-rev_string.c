@@ -44,6 +44,10 @@ void rev_string(char *s)
 	int size;
 	int x;
 
+	if (!s)
+	{
+		return;
+	}
 	size = _strlen(s) - 1;
 	if (size < 2)
 	{
