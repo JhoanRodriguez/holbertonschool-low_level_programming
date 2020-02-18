@@ -14,12 +14,15 @@ void puts2(char *str)
 	{
 		c++;
 	}
+	c--;
 	for (x = 0; x <= c; x++)
 	{
 		if (x % 2 == 0)
 		{
 		printf("%c", str[x]);
 		}
+		else
+			continue;
 	}
 	printf("\n");
 }
