@@ -23,7 +23,7 @@ int _atoi(char *s)
 		{
 			signo++;
 		}
-		if ( s[x] >= 48 && s[x] <= 58)
+		if (s[x] >= 48 && s[x] <= 58)
 		{
 			num = (num + s[x] - '0');
 		}
