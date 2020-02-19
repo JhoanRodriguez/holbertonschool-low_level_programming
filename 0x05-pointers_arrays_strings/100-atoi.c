@@ -12,7 +12,7 @@ int _atoi(char *s)
 	int x;
 	int signo = 0;
 	int num = 0;
-	if (s == NULL)
+	if (s == '/0')
 		return;
 	while (s[c] != '\0')
 	{
