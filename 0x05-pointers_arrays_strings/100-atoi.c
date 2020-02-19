@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * _atoi - Convert a string to integer.
  * @s: char array string
@@ -21,16 +21,20 @@ int _atoi(char *s)
 	{
 		if (s[x] == '-')
 		{
-			signo = -1;
+			signo++;
 		}
-		if ( s[x] >= 0 && s[x] <= 9)
+		if ( s[x] >= 48 && s[x] <= 58)
 		{
-			num = num + s[x] + '0';
+			num = (num + s[x] - '0');
+		}
+		else if (num != 0)
+		{
+			break;
 		}
 	}
-	if (signo != 0)
+	if (signo % 2 != 0)
 	{
-		num = num * signo;
+		num = num * -1;
 	}
 	return (num);
 }
