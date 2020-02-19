@@ -12,7 +12,8 @@ int _atoi(char *s)
 	int x;
 	int signo = 0;
 	int num = 0;
-
+	if (s == NULL)
+		return;
 	while (s[c] != '\0')
 	{
 		c++;
