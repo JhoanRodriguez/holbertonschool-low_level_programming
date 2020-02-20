@@ -1,10 +1,11 @@
 #include "holberton.h"
 int _strlen(char *s);
 /**
- * *_strcat - Print the last digit
- * @dest: Number that is going to be splited
- * @src: Number that is going to be splited
- * Return: Return the last digit
+ * _strncat - concatenate two strings
+ * @dest: string
+ * @src: string
+ * @n: number of elements to concatenate in
+ * Return: pointer to resulting `dest`
  */
 char *_strncat(char *dest, char *src, int n)
 {
@@ -19,7 +20,7 @@ char *_strncat(char *dest, char *src, int n)
 	}
 
 	for (x = size1; x < (size1 + n); x++)
-	{		
+	{
 		dest[x] = src[y];
 		y++;
 	}
