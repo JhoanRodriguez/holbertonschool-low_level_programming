@@ -17,6 +17,10 @@ char *cap_string(char *str)
 		{
 			if (str[x] == ex[y])
 			{
+				if (str[x] == '\t')
+				{
+					str[x] = ' ';
+				}
 				cap = 1;
 			}
 			else if ((str[x] >=65 && str[x] < 91) || (str[x] > 47 && str[x] < 58))
