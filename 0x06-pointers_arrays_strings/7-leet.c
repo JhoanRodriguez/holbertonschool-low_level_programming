@@ -12,25 +12,25 @@ char *leet(char *s)
 
 	for (x = 0; s[x] != '\0'; x++)
 	{
-		if (s[i] == 'a' || s[i] == 'A')
+		if (s[x] == 'a' || s[x] == 'A')
 		{
-			s[i] = '4';
+			s[x] = '4';
 		}
-		else if (s[i] == 'e' || s[i] == 'E')
+		else if (s[x] == 'e' || s[x] == 'E')
 		{
-			s[i] = '3';
+			s[x] = '3';
 		}
-		else if (s[i] == 'o' || s[i] == 'O')
+		else if (s[x] == 'o' || s[x] == 'O')
 		{
-			s[i] = '0';
+			s[x] = '0';
 		}
-		else if (s[i] == 't' || s[i] == 'T')
+		else if (s[x] == 't' || s[x] == 'T')
 		{
-			s[i] = '7';
+			s[x] = '7';
 		}
-		else if (s[i] == 'l' || s[i] == 'L')
+		else if (s[x] == 'l' || s[x] == 'L')
 		{
-			s[i] = '1';
+			s[x] = '1';
 		}
 	}
 	return (s);
