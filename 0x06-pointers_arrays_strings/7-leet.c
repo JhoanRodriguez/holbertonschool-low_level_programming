@@ -12,23 +12,23 @@ char *leet(char *s)
 
 	for (x = 0; s[x] != '\0'; x++)
 	{
-		if (s[x] == 'a' || s[x] == 'A')
+		while (s[x] == 'a' || s[x] == 'A')
 		{
 			s[x] = '4';
 		}
-		else if (s[x] == 'e' || s[x] == 'E')
+		while (s[x] == 'e' || s[x] == 'E')
 		{
 			s[x] = '3';
 		}
-		else if (s[x] == 'o' || s[x] == 'O')
+		while (s[x] == 'o' || s[x] == 'O')
 		{
 			s[x] = '0';
 		}
-		else if (s[x] == 't' || s[x] == 'T')
+		while (s[x] == 't' || s[x] == 'T')
 		{
 			s[x] = '7';
 		}
-		else if (s[x] == 'l' || s[x] == 'L')
+		while (s[x] == 'l' || s[x] == 'L')
 		{
 			s[x] = '1';
 		}
