@@ -19,10 +19,11 @@ char *cap_string(char *str)
 			{
 				cap = 1;
 			}
-			else if (str[x] >=65 && str[x] < 91)
+			else if ((str[x] >=65 && str[x] < 91) || (str[x] > 47 && str[x] < 58))
 			{
 				cap = 0;
 			}
+
 			if (str[x] >= 97 && str[x] < 123 && cap == 1)
 			{
 				str[x] = str[x] - 32;
