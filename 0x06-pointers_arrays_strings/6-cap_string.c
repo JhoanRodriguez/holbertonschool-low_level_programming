@@ -17,18 +17,17 @@ char *cap_string(char *str)
 		{
 			if (str[x] == ex[y])
 			{
-				str[x] = ' ';
 				cap = 1;
 			}
 			else if (str[x] >=65 && str[x] < 91)
 			{
 				cap = 0;
 			}
-		}
-		if (str[x] >= 97 && str[x] < 123 && cap == 1)
-		{
-			str[x] = str[x] - 32;
-			cap = 0;
+			if (str[x] >= 97 && str[x] < 123 && cap == 1)
+			{
+				str[x] = str[x] - 32;
+				cap = 0;
+			}
 		}
 	}
 	return (str);
