@@ -17,13 +17,13 @@ char *cap_string(char *str)
 	}
 	for (x = 0; str[x] != '\0'; x++)
 	{
-		for (y = 0; ex[y] != '\0';y++)
+		for (y = 0; ex[y] != '\0'; y++)
 		{
 			if (str[x] == ex[y])
 			{
 				cap = 1;
 			}
-			else if ((str[x] >=65 && str[x] < 91) || (str[x] > 47 && str[x] < 58))
+			else if ((str[x] >= 65 && str[x] < 91) || (str[x] > 47 && str[x] < 58))
 			{
 				cap = 0;
 			}
