@@ -12,7 +12,7 @@ char *leet(char *s)
 	int y;
 	char A[] = "aeotlAEOTL";
 	char N[] = "4307143071";
-	
+
 	for (x = 0; s[x] != 0; x++)
 	{
 		for (y = 0; A[y] != '\0'; y++)
@@ -22,5 +22,6 @@ char *leet(char *s)
 				s[x] = N[y];
 			}
 		}
-	}return (s);
+	}
+	return (s);
 }
