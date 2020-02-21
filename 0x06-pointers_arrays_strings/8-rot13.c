@@ -9,22 +9,15 @@
 char *rot13(char *s)
 {
 	int x;
-	int y;
-	char A[] = "abcdefghijklmABCDEFGHIJKLM";
-	char N[] = "nopqrstuvwxyzNOPQRSTUVWXYZ";
+	char A[] = "nopqrstuvwxyzabcdefghijklm";
+	char N[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
 
 	for (x = 0; s[x] != 0; x++)
 	{
-		for (y = 0; A[y] != '\0'; y++)
+		if ((s[x] > 64 && s[x] < 91) || (s[x] > 96 && s[x] < 123))
 		{
-			if (s[x] == A[y])
-			{
-				s[x] = N[y];
-			}
-			else
-			{
-				(s[x] == N[y]) ? s[x] = A[y]: s[x];
-			}
+			s[x] = (s[x] - 65 > 25) ?
+				A[s[x] - 97] : N[s[x] - 65];
 		}
 	}
 	return (s);
