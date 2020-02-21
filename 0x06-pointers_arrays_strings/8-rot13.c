@@ -17,10 +17,10 @@ char *rot13(char *s)
 	{
 		for (y = 0; A[y] != '\0'; y++)
 		{
-			if ( s[x] == A[y])
+			if (s[x] == A[y])
 			{
 				s[x] = N[y];
-				break;		
+				break;
 			}
 		}
 	}
