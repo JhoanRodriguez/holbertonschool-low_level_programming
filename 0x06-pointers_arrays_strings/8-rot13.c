@@ -21,6 +21,10 @@ char *rot13(char *s)
 			{
 				s[x] = N[y];
 			}
+			else if (s[x] == N[y])
+			{
+				s[x] = A[y];
+			}
 		}
 	}
 	return (s);
