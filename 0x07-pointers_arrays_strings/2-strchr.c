@@ -19,9 +19,9 @@ char *_strchr(char *s, char c)
 		{
 			break;
 		}
-		else if ( s == '\0')
+		else if (s == '\0')
 		{
-			return NULL;
+			return (NULL);
 		}
 	}
 	return (s);
