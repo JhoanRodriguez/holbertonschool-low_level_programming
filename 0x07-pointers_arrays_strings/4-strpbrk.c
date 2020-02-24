@@ -23,11 +23,13 @@ char *_strpbrk(char *s, char *accept)
 			if (*s == accept[x])
 			{
 				y = &s;
-				break;
+				return (*y);
+			}
+			else if (*s == '\0')
+			{
+				return (NULL);
 			}
 		}
-		if (*s == accept[x])
-			break;
 	}
-	return (*y);
+	return (0);
 }
