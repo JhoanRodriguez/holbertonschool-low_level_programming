@@ -10,7 +10,7 @@
 char *_strchr(char *s, char c)
 {
 
-	if (s == NULL)
+	if (s == 0)
 		return (0);
 
 	for (; s != '\0'; s++)
