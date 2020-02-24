@@ -11,7 +11,7 @@
 char *_strpbrk(char *s, char *accept)
 {
 	int x;
-	char **y;
+	char **y = 0;
 
 	if (s == NULL || accept == NULL)
 		return (0);
@@ -29,5 +29,5 @@ char *_strpbrk(char *s, char *accept)
 		if (*s == accept[x])
 			break;
 	}
-	return (s =! '\0' ? *y : 0);
+	return (*y);
 }
