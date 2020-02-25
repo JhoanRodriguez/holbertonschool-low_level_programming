@@ -17,7 +17,7 @@ void print_diagsums(int *a, int size)
 	}
 	printf("%d, ", sum1);
 
-	for (x = size - 1; x < size2; x = (x + size - 1))
+	for (x = size - 1; x < size2; x = x + size - 1)
 	{
 		if (y != size)
 		{
@@ -25,5 +25,5 @@ void print_diagsums(int *a, int size)
 		y++;
 		}
 	}
-	printf("%d, ", sum2);
+	printf("%d\n", sum2);
 }
