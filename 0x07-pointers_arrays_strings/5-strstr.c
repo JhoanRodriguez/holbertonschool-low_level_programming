@@ -17,7 +17,7 @@ char *_strstr(char *h, char *n)
 
 	for (x = 0; h[x] != '\0'; x++)
 	{
-		for (y = z , j = 0; n[j] != '\0';j++, z++)
+		for (y = z, j = 0; n[j] != '\0'; j++, z++)
 		{
 			if (h[pos] != n[j] || h[z] == '\0')
 			{
