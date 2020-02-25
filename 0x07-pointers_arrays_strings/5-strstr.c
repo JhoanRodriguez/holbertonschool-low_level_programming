@@ -17,14 +17,14 @@ char *_strstr(char *h, char *n)
 
 	for (x = 0; h[x] != '\0'; x++)
 	{
-		for (y = z, j = 0; n[j] != '\0'; j++, z++)
+		for (z = x, y = 0; n[y] != '\0'; y++, z++)
 		{
-			if (h[pos] != n[j] || h[z] == '\0')
+			if (h[z] != n[y] || h[z] == '\0')
 			{
 				break;
 			}
 		}
-		if (n[j] == 0)
+		if (n[y] == 0)
 		{
 			return (&h[x]);
 		}
