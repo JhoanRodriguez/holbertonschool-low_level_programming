@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+char *_strncat(char *dest, char *src, int n);
 int _strlen(char *s);
 /**
  * str_concat - concatenate two strings using malloc
@@ -10,8 +11,7 @@ int _strlen(char *s);
 
 char *str_concat(char *s1, char *s2)
 {
-	int x, y = 0;
-	int a,b;
+	int a, b;
 	char *s3;
 
 	if (s1 == NULL)
@@ -25,21 +25,14 @@ char *str_concat(char *s1, char *s2)
 	a = _strlen(s1);
 	b = _strlen(s2);
 
-	s3 = malloc(a * sizeof(*s1) + b * sizeof(*s2) + 1);
+	s3 = malloc((a + b) * sizeof(char) + 1);
 
 	if (s3 == NULL)
 	{
 		return (0);
 	}
-	for (x = 0; x < a; x++)
-	{
-		s3[x] = s1[x];
-	}
-	for (; x < (a + b); x++, y++)
-	{
-		s3[x] = s2[y];
-	}
-	s3[x + 1] = '\0';
+	_strncat(s3,s1,a);
+	_strncat(s3,s2,b);
 	return (s3);
 }
 /**
@@ -56,4 +49,30 @@ int _strlen(char *s)
 		c++;
 	}
 	return (c);
+}
+/**
+ * _strncat - concatenate two strings
+ * @dest: char string to concatenate to
+ * @src: char string
+ * @n: char to check
+ * Return: 'dest'
+ */
+
+char *_strncat(char *dest, char *src, int n)
+{
+	int a, b;
+
+	a = 0;
+	while (dest[a] != '\0')
+		a++;
+
+	for (b = 0; src[b] != 0; b++)
+	{
+		if (b < n)
+			dest[a] = src[b];
+
+		++a;
+	}
+
+	return (dest);
 }
