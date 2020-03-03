@@ -17,7 +17,7 @@ char *create_array(unsigned int size, char c)
 	{
 		return (0);
 	}
-	if (c == '\0')
+	if (a == '\0')
 	{
 		return (0);
 	}
