@@ -27,7 +27,6 @@ char *_strdup(char *str)
 	}
 	a[x] = '\0';
 	return (a);
-	free(a);
 }
 /**
  * _strlen - Print the last digit
