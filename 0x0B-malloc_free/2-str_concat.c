@@ -11,7 +11,6 @@ int _strlen(char *s);
 char *str_concat(char *s1, char *s2)
 {
 	int x, y = 0;
-	char *s3 = malloc(_strlen(s1) + _strlen(s2));
 
 	if (s1 == NULL)
 	{
@@ -21,6 +20,7 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
+	char *s3 = malloc(_strlen(s1) + _strlen(s2));
 	if (s3 == NULL)
 	{
 		return (0);
