@@ -16,7 +16,7 @@ char *_strdup(char *str)
 	{
 		return (0);
 	}
-	a = malloc(_strlen(str) + 1);
+	a = malloc(_strlen(str));
 	for (x = 0; x < _strlen(str); x++)
 	{
 		a[x] = str[x];
@@ -37,5 +37,5 @@ int _strlen(char *s)
 	{
 		c++;
 	}
-	return (c);
+	return (c + 1);
 }
