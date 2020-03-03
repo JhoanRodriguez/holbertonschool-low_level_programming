@@ -34,10 +34,10 @@ char *_strncat(char *dest, char *src, int n)
 }
 
 /**
- * *str_concat - function to allocate space for sting concatnation
+ * str_concat - function to allocate space for sting concatnation
  * @s1: array pointer to destination of string
  * @s2: array pointer to source of string
- * Returnn: return pointer to copy of string
+ * Return: return pointer to copy of string
  */
 
 char *str_concat(char *s1, char *s2)
