@@ -22,6 +22,7 @@ char *_strdup(char *str)
 		a[x] = str[x];
 	}
 	return (a);
+	free(a);
 }
 /**
  * _strlen - Print the last digit
