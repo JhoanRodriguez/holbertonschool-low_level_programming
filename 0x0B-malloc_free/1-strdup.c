@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-
+int _strlen(char *s);
 /**
  * _strdup - Duplicate a string using malloc
  * @str: string to duplicate
@@ -16,10 +16,25 @@ char *_strdup(char *str)
 	{
 		return (0);
 	}
-	a = malloc(strlen(str));
-	for (x = 0; x < strlen(str); x++)
+	a = malloc(_strlen(str));
+	for (x = 0; x < _strlen(str); x++)
 	{
 		a[x] = str[x];
 	}
 	return (a);
+}
+/**
+ * _strlen - Print the last digit
+ * @s: Number that is going to be splited
+ * Return: Return the last digit
+ */
+int _strlen(char *s)
+{
+	int c = 0;
+
+	while (s[c] != '\0')
+	{
+		c++;
+	}
+	return (c);
 }
