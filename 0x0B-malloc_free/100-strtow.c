@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <string.h>
+int hmw(char *s);
 /**
  * strtow - slpits a string into words.
  * @str: string
@@ -9,29 +9,52 @@
 
 char **strtow(char *str)
 {
-	int x, y = 0, size;
+	int x, y = 0;
 	char *split;
 
-	if (str == NULL || strncmp(str, "", 1))
+	if (str == NULL || *str == 0)
 		return (0);
 
-	for (x = 0; str[x] != '\0'; x++)
+	split = malloc(hmw(str) * sizeof(char));
+	if (split == NULL)
+		return (0);
+
+
+	for (x = 0; x < hmw(str); x++)
 	{
-		if (str[x] != 32)
+		if (str[x] != ' ')
+		{
+		split[y] = str[x];
+		y++;
+		}
+		else
+		{
+			split[y] = '\n';
+			if (str[x + 1] != ' ')
+			y++;
+		}
+	}
+	split[hmw(str)] = '\0';
+	return (0);
+}
+/**
+ * hmw - function to calculate number of words
+ * @s: string being passed to check for words
+ *
+ * Return: number of words
+ */
+int hmw(char *s)
+{
+	int size = 0;
+	int x;
+
+	for (x = 0; s[x] != '\0'; x++)
+	{
+		if (s[x] != ' ')
 		{
 			size++;
 		}
 	}
 	size++;
-	split = malloc(size * sizeof(char));
-	for (x = 0; x < size; x++)
-	{
-		if (str[x] != 32)
-		{
-		split[y] = str[x];
-		y++;
-		}
-	}
-	split[size] = '\0';
-	return (0);
+	return (size);
 }
