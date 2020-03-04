@@ -18,15 +18,19 @@ int **alloc_grid(int width, int height)
 	{
 		return (0);
 	}
-	if (malloc(width) == NULL ||  malloc(height) == NULL)
+	matrix = malloc(width * sizeof(int *));
+
+	if (matrix == NULL)
 	{
 		return (0);
 	}
-	matrix = malloc(width * sizeof(int *));
-
 	for (x = 0; x < width; x++)
 	{
 		matrix[x] = malloc(height * sizeof(int));
+		if (matrix[x] == NULL)
+		{
+			return (0);
+		}
 	}
 
 	for (x = 0; x < width; x++)
