@@ -14,7 +14,7 @@ int **alloc_grid(int width, int height)
 	int x, y;
 	int **matrix;
 
-	if (width <= 0 || height <= 0)
+	if (width <= 0 || height <= 0 || width == NULL || height == NULL)
 	{
 		return (0);
 	}
