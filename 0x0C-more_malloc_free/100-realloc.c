@@ -34,8 +34,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (s == NULL)
 		return (0);
 
-	if (new_size != old_size)
-	{
 		_strncpy(s, ptr, old_size);
 		free(ptr);
 		ptr = malloc(new_size);
@@ -46,8 +44,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		_strncpy(ptr, s, new_size);
 		free(s);
 		return (ptr);
-	}
-	return (ptr);
 }
 /**
  * _strncpy - Copy a string starting from index 0 of `dest`.
