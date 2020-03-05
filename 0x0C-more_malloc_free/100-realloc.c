@@ -29,6 +29,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			return (0);
 
 		_strcpy(ptr, s);
+		free(s);
 		return (ptr);
 	}
 	if (new_size == old_size)
