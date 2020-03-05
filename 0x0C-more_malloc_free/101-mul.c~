@@ -1,0 +1,41 @@
+#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int check_num(char *st);
+/**
+ * simple_print_buffer - prints buffer in hexa
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing.
+ */
+int main(int argc, char *argv[])
+{
+	if (argc != 3 || (!(check_num(argv[1]) && check_num(argv[2]))))
+	{
+		printf("Error\n");
+		exit (98);
+	}
+	else
+	{
+		printf("%d\n", (atoi(argv[1]) * atoi(argv[2])));
+	}
+	return (0);
+}
+/**
+ * check_num - function to check the string for number
+ * @st: string being passed
+ * Return: 1 for number 0 for not
+ */
+int check_num(char *st)
+{
+	int a;
+
+	for (a = 0; st[a] != '\0'; a++)
+	{
+		if (st[a] < '0' || st[a] > '9')
+			return (0);
+	}
+	return (1);
+}
