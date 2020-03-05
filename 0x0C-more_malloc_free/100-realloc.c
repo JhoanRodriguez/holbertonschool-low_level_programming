@@ -1,5 +1,6 @@
 #include "holberton.h"
-char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+char *_strncpy(char *dest, char *src, int n);
 /**
  * _realloc - reallocates a memory block
  * @ptr: pointer to previous memory block
@@ -31,45 +32,63 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	s = malloc(old_size);
 
 	if (s == NULL)
-	{
-	return (0);
-	}
+		return (0);
 
 	if (new_size != old_size)
 	{
-		_strcpy(s, ptr);
+		_strncpy(s, ptr, old_size);
 		free(ptr);
 		ptr = malloc(new_size);
-		
+
 		if (ptr == NULL)
 			return (0);
-		
-		_strcpy(ptr, s);
+
+		_strncpy(ptr, s, new_size);
 		free(s);
 		return (ptr);
 	}
 	return (ptr);
 }
 /**
- * *_strcpy - copy the string
- * @dest: char type string
- * @src: char type string
- * Return: Pointer to `dest`
+ * _strncpy - Copy a string starting from index 0 of `dest`.
+ * @dest: string
+ * @src: string
+ * @n: number of chars to copy over
+ * Return: `dest` edited string
  */
 
-char *_strcpy(char *dest, char *src)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int x;
-	int c = 0;
+	int size2 = _strlen(src);
+	int x, z = n;
 
-	while (src[c] != '\0')
+	if (n > size2)
 	{
-		c++;
+		n = size2;
 	}
-	for (x = 0; x < c; x++)
+
+	for (x = 0; x < n; x++)
 	{
 		dest[x] = src[x];
 	}
-	dest[c] = '\0';
+	for  (; x < z; x++)
+	{
+		dest[x] = '\0';
+	}
 	return (dest);
+}
+/**
+ * _strlen - swap funcion
+ * @s: Number that is going to be splited
+ * Return: Return the last digit
+ */
+int _strlen(char *s)
+{
+	int c = 0;
+
+	while (s[c] != '\0')
+	{
+		c++;
+	}
+	return (c);
 }
