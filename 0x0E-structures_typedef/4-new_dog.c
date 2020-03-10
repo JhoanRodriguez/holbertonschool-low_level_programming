@@ -1,4 +1,51 @@
 #include "dog.h"
+int _strlen(char *s);
+/**
+ * new_dog - create a new dog
+ * @name: char string name
+ * @age: int age
+ * @owner: char string owner
+ * Return: pointer to new dog
+ */
+dog_t *new_dog(char *name, float age, char *owner)
+{
+	struct dog *dog2;
+	char *name2, *owner2;
+	int x;
+
+	dog2 = malloc(sizeof(struct dog));
+	if (dog2 == NULL)
+	{
+		return (0);
+	}
+
+	name2 = malloc(_strlen(name) + 1);
+	if (name2 == NULL)
+	{
+		free(dog2);
+		return (0);
+	}
+	owner2 = malloc(_strlen(owner) + 1);
+	if (owner2 == NULL)
+	{
+		free(name2);
+		free(dog2);
+		return (0);
+	}
+	for (x = 0; x <= _strlen(name); x++)
+	{
+		name2[x] = name[x];
+	}
+	for (x = 0; x <= _strlen(owner); x++)
+	{
+		owner2[x] = owner[x];
+	}
+	dog2->name = name2;
+	dog2->age = age;
+	dog2->owner = owner2;
+
+	return (dog2);
+}
 /**
  * _strlen - Print the last digit
  * @s: Number that is going to be splited
@@ -13,48 +60,4 @@ int _strlen(char *s)
 		c++;
 	}
 	return (c);
-}
-/**
- * new_dog - create a new dog
- * @name: char string name
- * @age: int age
- * @owner: char string owner
- * Return: pointer to new dog
- */
-dog_t *new_dog(char *name, float age, char *owner)
-{
-	struct dog *dog2;
-	int x;
-
-	dog2 = malloc(sizeof(struct dog));
-	if (dog2 == NULL)
-	{
-		return (0);
-	}
-
-	dog2->name = malloc(_strlen(name) + 1);
-	if (dog2->name == NULL)
-	{
-		free(dog2);
-		return (0);
-	}
-	dog2->owner = malloc(_strlen(owner) + 1);
-	if (dog2->owner == NULL)
-	{
-		free(dog2->name);
-		free(dog2);
-		return (0);
-	}
-	for (x = 0; x < _strlen(name); x++)
-	{
-		dog2->name[x] = name[x];
-	}
-	dog2->name[x] = '\0';
-	for (x = 0; x < _strlen(owner); x++)
-	{
-		dog2->owner[x] = owner[x];
-	}
-	dog2->owner[x] = '\0';
-	dog2->age = age;
-	return (dog2);
 }
