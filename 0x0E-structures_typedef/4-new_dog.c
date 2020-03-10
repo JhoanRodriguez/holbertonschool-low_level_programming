@@ -1,5 +1,5 @@
-BB#include "dog.h"
-
+#include "dog.h"
+int _strlen(char *s);
 /**
  * new_dog - create a new dog
  * @name: char string name
@@ -10,7 +10,8 @@ BB#include "dog.h"
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	struct dog *dog2;
-	char *name2, owner2;
+	char *name2, *owner2;
+	int x;
 
 	dog2 = malloc(sizeof(struct dog));
 	if (dog2 == NULL)
@@ -19,14 +20,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (0);
 	}
 
-	name2 = malloc(sizeof((char)*_strlen(name)) + 1);
+	name2 = malloc(sizeof(_strlen(name)) + 1);
 	if (name2 == NULL)
 	{
 		free(name2);
 		free(dog2);
 		return (0);
 	}
-	owner2 = malloc(sizeof((char)*_strlen(owner)) + 1);
+	owner2 = malloc(sizeof(_strlen(owner)) + 1);
 	if (owner2 == NULL)
 	{
 		free(owner2);
