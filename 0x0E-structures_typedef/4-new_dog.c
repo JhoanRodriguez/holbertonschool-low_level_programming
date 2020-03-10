@@ -1,5 +1,19 @@
 #include "dog.h"
-int _strlen(char *s);
+/**
+ * _strlen - Print the last digit
+ * @s: Number that is going to be splited
+ * Return: Return the last digit
+ */
+int _strlen(char *s)
+{
+	int c = 0;
+
+	while (s[c] != '\0')
+	{
+		c++;
+	}
+	return (c);
+}
 /**
  * new_dog - create a new dog
  * @name: char string name
@@ -43,19 +57,4 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog2->owner[x] = '\0';
 	dog2->age = age;
 	return (dog2);
-}
-/**
- * _strlen - Print the last digit
- * @s: Number that is going to be splited
- * Return: Return the last digit
- */
-int _strlen(char *s)
-{
-	int c = 0;
-
-	while (s[c] != '\0')
-	{
-		c++;
-	}
-	return (c);
 }
