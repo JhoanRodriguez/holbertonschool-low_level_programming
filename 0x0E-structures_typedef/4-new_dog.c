@@ -10,7 +10,6 @@ int _strlen(char *s);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	struct dog *dog2;
-	char *name2, *owner2;
 	int x;
 
 	dog2 = malloc(sizeof(struct dog));
@@ -40,7 +39,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		dog2->owner[x] = owner[x];
 	}
-
+	dog2->age = age;
 	return (dog2);
 }
 /**
