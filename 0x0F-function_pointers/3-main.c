@@ -11,7 +11,6 @@
 
 int main(int argc, char *argv[])
 {
-	int result;
 
 	if (argc != 4)
 	{
@@ -28,9 +27,9 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(99);
 	}
-
-	result = get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3]));
-	printf("%i\n", result);
-
+	else
+	{
+		printf("%i\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
+	}
 	return (0);
 }
