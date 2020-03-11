@@ -10,10 +10,5 @@
 
 void print_name(char *name, void (*f)(char *))
 {
-	if (name == NULL)
-		exit(98);
-	else
-	{
 		f(name);
-	}
 }
