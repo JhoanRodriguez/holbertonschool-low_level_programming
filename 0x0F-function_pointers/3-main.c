@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		printf("%i\n",get_op_func(argv[2])(atoi(argv[1]),atoi(argv[3])));
+		printf("%i\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
 	}
 	return (0);
 }
