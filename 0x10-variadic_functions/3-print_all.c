@@ -47,7 +47,7 @@ void print_string(va_list list, char *separator)
  */
 void print_all(const char * const format, ...)
 {
-	int x = 0, y = 0;
+	int x, y = 0;
 	char *separator = "";
 
 	va_list list;
@@ -62,6 +62,7 @@ void print_all(const char * const format, ...)
 
 	while (format != NULL && *(format + y) != '\0')
 	{
+		x = 0;
 		while (x < 4)
 		{
 			if (ptr[x].type[0] == format[y])
@@ -71,7 +72,7 @@ void print_all(const char * const format, ...)
 			}
 			x++;
 		}
-		y++, x = 0;
+		y++;
 	}
 	va_end(list);
 	printf("\n");
