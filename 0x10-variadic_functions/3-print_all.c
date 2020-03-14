@@ -34,10 +34,12 @@ void print_string(va_list list)
 	char *x;
 
 	x = va_arg(list, char *);
-	if (x != '\0')
-		printf("%s", x);
-	else
+	if (x == '\0')
+	{
 		printf("(nil)");
+		exit(98);
+	}
+	printf("%s", x);
 }
 /**
  * print_all - print all type element from va_list
