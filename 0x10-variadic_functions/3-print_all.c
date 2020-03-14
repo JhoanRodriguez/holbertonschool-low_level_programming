@@ -36,7 +36,7 @@ void print_string(va_list list, char *separator)
 	x = va_arg(list, char *);
 	if (!x)
 	{
-		printf("%s(nil)", separator);
+		printf("%s%s", separator, "(nil)");
 		return;
 	}
 	printf("%s%s", separator, x);
