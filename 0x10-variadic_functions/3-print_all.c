@@ -34,10 +34,10 @@ void print_string(va_list list, char *separator)
 	char *x;
 
 	x = va_arg(list, char *);
-	if (x == '\0')
+	if (!x)
 	{
-		printf("(nil)");
-		exit(98);
+		printf("%s(nil)", separator);
+		return;
 	}
 	printf("%s%s", separator, x);
 }
