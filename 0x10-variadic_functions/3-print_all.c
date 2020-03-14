@@ -65,7 +65,7 @@ void print_all(const char * const format, ...)
 		x = 0;
 		while (x < 4)
 		{
-			if (ptr[x].type[0] == format[y])
+			if (format[y] == ptr[x].type[0])
 			{
 				ptr[x].f(list, separator);
 				separator = ", ";
