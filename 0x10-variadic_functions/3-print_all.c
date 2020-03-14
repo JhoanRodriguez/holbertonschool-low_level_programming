@@ -23,7 +23,7 @@ void print_string(va_list list)
 
 	x = va_arg(list, char *);
 	if (x != '\0')
-		printf("%s, ", x);
+		printf("%s", x);
 	else
 		printf("(nil)");
 }
