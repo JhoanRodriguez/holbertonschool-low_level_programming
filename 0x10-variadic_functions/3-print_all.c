@@ -19,11 +19,17 @@ void print_float(va_list list)
 }
 void print_string(va_list list)
 {
-	printf("%s, ", va_arg(list, char *));
+	char *x;
+
+	x = va_arg(list, char *);
+	if (x != '\0')
+		printf("%s, ", x);
+	else
+		printf("(nil)");
 }
 void print_all(const char * const format, ...)
 {
-	int x = 0;
+	int x = 0, y = 0;
 
 	va_list list;
 
@@ -35,13 +41,17 @@ void print_all(const char * const format, ...)
 	};
 	va_start(list, format);
 
-	while (x < 4)
+	while (format != NULL && *(format + y) != '\0')
 	{
-		if (ptr[x].type[0] == *format)
+		while (x < 4)
 		{
-			ptr[x].f(list);
+			if (ptr[x].type[0] == format[y])
+			{
+				ptr[x].f(list);
+			}
+			x++;
 		}
-		x++;
+		y++, x = 0;
 	}
 	va_end(list);
 	printf("\n");
