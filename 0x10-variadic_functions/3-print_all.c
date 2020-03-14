@@ -5,31 +5,31 @@
  * print_char - print char type element from va_list
  * @list: va_list passed to function
  */
-void print_char(va_list list)
+void print_char(va_list list, char *separator)
 {
-	printf("%c, ", va_arg(list, int));
+	printf("%s%c", separator, va_arg(list, int));
 }
 /**
  * print_int - print int type element from va_list
  * @list: va_list passed to function
  */
-void print_int(va_list list)
+void print_int(va_list list, char *separator)
 {
-	printf("%d, ", va_arg(list, int));
+	printf("%s%d", separator, va_arg(list, int));
 }
 /**
  * print_float - print float type element from va_list
  * @list: va_list passed to function
  */
-void print_float(va_list list)
+void print_float(va_list list, char *separator)
 {
-	printf("%f, ", va_arg(list, double));
+	printf("%s%f, ", separator, va_arg(list, double));
 }
 /**
  * print_string - print string type element from va_list
  * @list: va_list passed to function
  */
-void print_string(va_list list)
+void print_string(va_list list, char *separator)
 {
 	char *x;
 
@@ -39,7 +39,7 @@ void print_string(va_list list)
 		printf("(nil)");
 		exit(98);
 	}
-	printf("%s", x);
+	printf("%s%s", separator, x);
 }
 /**
  * print_all - print all type element from va_list
@@ -48,6 +48,7 @@ void print_string(va_list list)
 void print_all(const char * const format, ...)
 {
 	int x = 0, y = 0;
+	char *separator = "";
 
 	va_list list;
 
@@ -65,7 +66,8 @@ void print_all(const char * const format, ...)
 		{
 			if (ptr[x].type[0] == format[y])
 			{
-				ptr[x].f(list);
+				ptr[x].f(list, separator);
+				separator = ", ";
 			}
 			x++;
 		}
