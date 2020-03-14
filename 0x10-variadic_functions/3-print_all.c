@@ -3,6 +3,7 @@
 #include <stdio.h>
 /**
  * print_char - print char type element from va_list
+ * @separator: separator passed to function
  * @list: va_list passed to function
  */
 void print_char(va_list list, char *separator)
@@ -11,6 +12,7 @@ void print_char(va_list list, char *separator)
 }
 /**
  * print_int - print int type element from va_list
+ * @separator: separator passed to function
  * @list: va_list passed to function
  */
 void print_int(va_list list, char *separator)
@@ -19,6 +21,7 @@ void print_int(va_list list, char *separator)
 }
 /**
  * print_float - print float type element from va_list
+ * @separator: separator passed to function
  * @list: va_list passed to function
  */
 void print_float(va_list list, char *separator)
@@ -27,6 +30,7 @@ void print_float(va_list list, char *separator)
 }
 /**
  * print_string - print string type element from va_list
+ * @separator: separator passed to function
  * @list: va_list passed to function
  */
 void print_string(va_list list, char *separator)
