@@ -26,7 +26,7 @@ void print_int(va_list list, char *separator)
  */
 void print_float(va_list list, char *separator)
 {
-	printf("%s%f, ", separator, va_arg(list, double));
+	printf("%s%f", separator, va_arg(list, double));
 }
 /**
  * print_string - print string type element from va_list
