@@ -14,9 +14,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 	if (head == NULL)
 		return (0);
 
-	ptrindex = (get_nodeint_at_index(*head, index));
-	ptrnew = add_nodeint ((void *)ptrindex, n);
-	return (ptrnew);	
+	ptrindex = get_nodeint_at_index(*head, index);
+	ptrnew = add_nodeint (&ptrindex, n);
+	return (ptrnew);
 }
 /**
  * add_nodeint - add a new node at the beginning of a `listint_t` list
@@ -26,16 +26,15 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
-	listint_t *new, *ptr;
+	listint_t *new;
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (0);
 
-	ptr = *head;
 	new->n = n;
-	new->next = ptr;
-	*head = new;
+	new->next = (*head)->next;
+	(*head)->next = new;
 	return (new);
 }
 /**
