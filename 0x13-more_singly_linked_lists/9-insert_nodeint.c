@@ -1,67 +1,50 @@
 #include "lists.h"
-#include <stdio.h>
+
 /**
- * insert_nodeint_at_index - insert a new node at a given position
- * @head: double pointer to head
- * @index: insert node at this index, starting count at 0
- * @n: value to store in node
- * Return: Address of new node or NULL if failed
+ * insert_nodeint_at_index - function to insert a node in a list at given index
+ * @head: pointer to the pointer to list
+ * @idx: given index to insert node at
+ * @n: data to be inserted
+ * Return: the address of new node inserted or NULL
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
-{
-	listint_t *ptrindex, *ptrnew;
-
-	if (head == NULL)
-		return (0);
-
-	ptrindex = get_nodeint_at_index(*head, index);
-	ptrnew = add_nodeint (&ptrindex, n);
-	return (ptrnew);
-}
-/**
- * add_nodeint - add a new node at the beginning of a `listint_t` list
- * @head: double pointer to head node
- * @n: int value to store in new node
- * Return: Address of new element or NULL if failed
- */
-listint_t *add_nodeint(listint_t **head, const int n)
-{
-	listint_t *new;
-
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
-		return (0);
-
-	new->n = n;
-	new->next = (*head)->next;
-	(*head)->next = new;
-	return (new);
-}
-/**
- * get_nodeint_at_index - Get the nth node of a `listint_t` linked list
- * @head: pointer to head node
- * @index: index to find in linked list, starting at 0
- * Return: pointer to node or NULL if failed
- */
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	unsigned int i;
-	unsigned int aux = 0;
-	listint_t *ptr;
+	listint_t *prev_node, *next_node, *new_node;
 
-	ptr = head;
+	next_node = prev_node = *head;
+	i = 0;
 
-	while (ptr != NULL)
+	while (next_node)
 	{
-		aux++;
-		ptr = ptr->next;
+		i++;
+		next_node = next_node->next;
 	}
-
-	if (index > aux)
+	if (idx > i)
 		return (NULL);
 
-	for (i = 0; i < index; i++)
-		head = head->next;
+	new_node = malloc(sizeof(listint_t));
+	if (!new_node)
+		return (NULL);
 
-	return (head);
+	new_node->n  = n;
+	if (idx == 0)
+	{
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
+	}
+
+	next_node = *head;
+	new_node->next = NULL;
+
+	for (i = 0; i < idx; i++)
+		next_node = next_node->next;
+
+	for (i = 0; i < idx - 1; i++)
+		prev_node = prev_node->next;
+
+	new_node->next = next_node;
+	prev_node->next = new_node;
+	return (new_node);
 }
