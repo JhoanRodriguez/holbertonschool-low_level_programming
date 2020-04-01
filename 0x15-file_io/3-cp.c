@@ -1,12 +1,11 @@
 #include "holberton.h"
-
 /**
  * main - create the copy bash script
  * @ac: argument count
  * @av: arguments as strings
  * Return: 0
  */
-int main(int ac, char **av[])
+int main(int ac, char **av)
 {
 	int f_from, f_to, read_value, ret_value;
 	char buf[BUFSIZE];
