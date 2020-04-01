@@ -8,7 +8,7 @@
 int main(int ac, char **av[])
 {
 	int f_from, f_to, read_value, ret_value, BUFSIZE = 1024;
-	char buf[BUFSIZE];
+	char buf[1024];
 
 	if (ac != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
