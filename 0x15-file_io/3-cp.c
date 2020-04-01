@@ -1,4 +1,5 @@
 #include "holberton.h"
+#define BUFSIZE 1024
 /**
  * main - create the copy bash script
  * @ac: argument count
@@ -7,8 +8,8 @@
  */
 int main(int ac, char **av[])
 {
-	int f_from, f_to, read_value, ret_value, BUFSIZE = 1024;
-	char buf[1024];
+	int f_from, f_to, read_value, ret_value, BUFSIZE;
+	char buf[BUFSIZE];
 
 	if (ac != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"),
