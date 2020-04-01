@@ -1,5 +1,5 @@
 #include "holberton.h"
-#define BUFSIZE 1024
+
 /**
  * main - create the copy bash script
  * @ac: argument count
@@ -8,7 +8,7 @@
  */
 int main(int ac, char **av[])
 {
-	int f_from, f_to, read_value, ret_value, BUFSIZE;
+	int f_from, f_to, read_value, ret_value;
 	char buf[BUFSIZE];
 
 	if (ac != 3)
