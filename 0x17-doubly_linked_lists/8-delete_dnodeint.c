@@ -8,29 +8,36 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *tmp = NULL;
-	unsigned int counter = 0;
-
-	if (!head)
-		return (-1);
-
-	tmp = *head;
-
-	if (index == 0)
-	{
-		*head = tmp->next;
-		free(tmp);
-		return (1);
-	}
+	dlistint_t *deleted_node;
 	
-	while (tmp != NULL && counter < index - 1)
-	{
-		tmp = tmp->next;
-		counter++;
-	}
-
-	tmp->next = tmp->next->next;
-	tmp->next->prev = tmp;
-	free(tmp);
+	deleted_node = get_dnodeint_at_index(*head, index);
+	if (!*head || !deleted_node)
+			return (-1);
+	if (*head == deleted_node)
+		*head = deleted_node->next;
+	if (deleted_node->next)
+		deleted_node->next->prev = deleted_node->prev;
+	if (deleted_node->prev)
+			deleted_node->prev->next = deleted_node->next;
+	free(deleted_node);
 	return (1);
+}
+/**
+ * get_dnodeint_at_index - Function that returns
+ * the nth node of a dlistint_t linked list
+ * @head: Head of the doubly linked list
+ * @index: Index of the node to be returned
+ *
+ * Return: A pointer to the the node at given index
+ */
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+{
+	dlistint_t *node;
+	
+	if (!head)
+		return (NULL);
+	node = head;
+	for ( ; index > 0 && node; index--)
+			node = node->next;
+	return (node);
 }
