@@ -8,31 +8,19 @@ int _strlen(char *s);
  */
 char *_strcat(char *dest, char *src)
 {
-	int size1 = _strlen(dest);
-	int size2 = _strlen(src);
-	int x;
-	int y = 0;
+	int i;
+	int j;
 
-	for (x = size1; x < (size1 + size2); x++)
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
 	{
-		dest[x] = src[y];
-		y++;
+		i++;
 	}
-	dest[x] = '\0';
+
+	for (j = 0 ; src[j] != '\0' ; j++, ++i)
+	{
+		dest[i] = src[j];
+	}
 	return (dest);
-}
-/**
- * _strlen - swap funcion
- * @s: Number that is going to be splited
- * Return: Return the last digit
- */
-int _strlen(char *s)
-{
-	int c = 0;
-
-	while (s[c] != '\0')
-	{
-		c++;
-	}
-	return (c);
 }

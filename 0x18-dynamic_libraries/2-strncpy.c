@@ -11,36 +11,18 @@ int _strlen(char *s);
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int size2 = _strlen(src);
-	int x, z = n;
+	int i;
 
-	if (n > size2)
+	i = 0;
+
+	for (i = 0 ; i < n && src[i] != 0 ; i++)
+		dest[i] = src[i];
+
+	while (i < n)
 	{
-		n = size2;
+		dest[i] = 0;
+		i++;
 	}
 
-	for (x = 0; x < n; x++)
-	{
-		dest[x] = src[x];
-	}
-	for  (; x < z; x++)
-	{
-		dest[x] = '\0';
-	}
 	return (dest);
-}
-/**
- * _strlen - swap funcion
- * @s: Number that is going to be splited
- * Return: Return the last digit
- */
-int _strlen(char *s)
-{
-	int c = 0;
-
-	while (s[c] != '\0')
-	{
-		c++;
-	}
-	return (c);
 }

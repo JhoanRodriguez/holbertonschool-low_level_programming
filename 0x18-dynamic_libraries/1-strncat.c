@@ -9,39 +9,18 @@ int _strlen(char *s);
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int size1 = _strlen(dest);
-	int size2 = _strlen(src);
-	int x;
-	int y = 0;
+	int i;
+	int j;
 
-	if (n > size2)
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
 	{
-		n = size2;
+		i++;
 	}
 
-	for (x = size1; x < (size1 + n); x++)
-	{
-		dest[x] = src[y];
-		y++;
-	}
-	if (n < size2)
-	{
-	dest[x] = '\0';
-	}
+	for (j = 0 ; j < n && src[j] != 0 ; j++, ++i)
+		dest[i] = src[j];
+
 	return (dest);
-}
-/**
- * _strlen - swap funcion
- * @s: Number that is going to be splited
- * Return: Return the last digit
- */
-int _strlen(char *s)
-{
-	int c = 0;
-
-	while (s[c] != '\0')
-	{
-		c++;
-	}
-	return (c);
 }
