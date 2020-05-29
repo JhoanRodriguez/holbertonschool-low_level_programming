@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 
-hash_node_t *add_node(hash_node_t *tmp, const char *key, const char *value);
+hash_node_t *add_node(const char *key, const char *value);
 
 /**
  * hash_table_set - Adds an element to the hash table
@@ -12,7 +12,7 @@ hash_node_t *add_node(hash_node_t *tmp, const char *key, const char *value);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *tmp = NULL;
+	hash_node_t *tmp = NULL, *new = NULL;
 
 	if (!key || strcmp(key, "") == 0 || !ht || !value)
 		return (0);
@@ -24,13 +24,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			if (strcmp(tmp->key, key) == 0)
 			{
-				free(tmp->value);
-				tmp->value = strdup(value);
+				if (strcmp(tmp->value, value) != 0)
+				{
+					free(tmp->value);
+					tmp->value = strdup(value);
+				}
 				return (1);
 			}		
 		}
-	tmp = ht->array[index];
-	add_node(tmp, key, value);
+	new = add_node(key, value);
+	if (new == NULL)
+		return (0);
+	new->next = ht->array[index];
+	ht->array[index] = new;
 	return (1);
 }
 /**
@@ -39,7 +45,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * @str: string to be saved in new node, must be duplicated
  * Return: Address of new element or NULL if failed
  */
-hash_node_t *add_node(hash_node_t *tmp, const char *key, const char *value)
+hash_node_t *add_node(const char *key, const char *value)
 {
 	hash_node_t *new;
 
@@ -61,9 +67,6 @@ hash_node_t *add_node(hash_node_t *tmp, const char *key, const char *value)
 			free(new->value);
 		free(new);
 	}
-
-	new->next = tmp;
-	tmp = new;
-
+	new->next = NULL;
 	return (new);
 }
