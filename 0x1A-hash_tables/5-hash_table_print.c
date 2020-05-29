@@ -15,7 +15,9 @@ void hash_table_print(const hash_table_t *ht)
 		tmp = ht->array[x];
 		if (tmp != NULL)
 		{
-			if (end != 0)
+			if (end == 0)
+				printf("%s", "");
+			else
 				printf(", ");
 
 			printf("'%s': '%s'", tmp->key, tmp->value);
