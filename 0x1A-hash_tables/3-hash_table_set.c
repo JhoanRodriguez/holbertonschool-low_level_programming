@@ -21,17 +21,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	tmp = ht->array[index];
 
 	for (; tmp != NULL; tmp = tmp->next)
+	{
+		if (strcmp(tmp->key, key) == 0)
 		{
-			if (strcmp(tmp->key, key) == 0)
+			if (strcmp(tmp->value, value) != 0)
 			{
-				if (strcmp(tmp->value, value) != 0)
-				{
-					free(tmp->value);
-					tmp->value = strdup(value);
-				}
-				return (1);
-			}		
+				free(tmp->value);
+				tmp->value = strdup(value);
+			}
+			return (1);
 		}
+	}
 	new = add_node(key, value);
 	if (new == NULL)
 		return (0);
@@ -41,8 +41,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 }
 /**
  * add_node - add a new node at the beginning of `hash_node_t` list
- * @head: double pointer to head
- * @str: string to be saved in new node, must be duplicated
+ * @key: key to be add
+ * @value: value of the key to be add
  * Return: Address of new element or NULL if failed
  */
 hash_node_t *add_node(const char *key, const char *value)
