@@ -1,7 +1,6 @@
 #include "hash_tables.h"
 
-hash_node_t *insert_node(hash_node_t **head,
-						unsigned long int idx, const char *value, const char *key);
+hash_node_t *add_node(hash_node_t *tmp, const char *key, const char *value);
 
 /**
  * hash_table_set - Adds an element to the hash table
@@ -13,64 +12,58 @@ hash_node_t *insert_node(hash_node_t **head,
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	hash_node_t *tmp = NULL;
 
 	if (!key || strcmp(key, "") == 0 || !ht || !value)
 		return (0);
 
 	index = key_index((unsigned char *)key, ht->size);
-	insert_node(ht->array, index, value, key);
-	return (1);
+	tmp = ht->array[index];
 
+	for (; tmp != NULL; tmp = tmp->next)
+		{
+			if (strcmp(tmp->key, key) == 0)
+			{
+				free(tmp->value);
+				tmp->value = strdup(value);
+				return (1);
+			}		
+		}
+	tmp = ht->array[index];
+	add_node(tmp, key, value);
+	return (1);
 }
 /**
- * insert_node - function to insert a node in a list at given index
- * @head: pointer to the pointer to list
- * @idx: given index to insert node at
- * @value: data to be inserted
- * @key: key
- * Return: the address of new node inserted or NULL
+ * add_node - add a new node at the beginning of `hash_node_t` list
+ * @head: double pointer to head
+ * @str: string to be saved in new node, must be duplicated
+ * Return: Address of new element or NULL if failed
  */
-hash_node_t *insert_node(hash_node_t **head,
-						unsigned long int idx, const char *value, const char *key)
+hash_node_t *add_node(hash_node_t *tmp, const char *key, const char *value)
 {
-	unsigned int i;
-	hash_node_t *next_node, *prev_node, *new_node;
+	hash_node_t *new;
 
-	next_node = prev_node =  *head;
-	i = 0;
-
-	while (next_node)
-	{
-		i++;
-		next_node = next_node->next;
-	}
-	if (idx > i)
+	if (!key || strcmp(key, "") == 0 || !value)
 		return (NULL);
 
-	new_node = malloc(sizeof(hash_node_t));
-	if (!new_node)
+	new = malloc(sizeof(hash_node_t));
+
+	if (new == NULL)
 		return (NULL);
 
-	new_node->key  = strdup(key);
-	new_node->value = strdup(value);
-
-	if (idx == 0)
+	new->key = strdup(key);
+	new->value = strdup(value);
+	if (new->key == NULL || new->value == NULL)
 	{
-		new_node->next = *head;
-		*head = new_node;
-		return (new_node);
+		if (new->key)
+			free(new->key);
+		if (new->value)
+			free(new->value);
+		free(new);
 	}
 
-	next_node = *head;
-	new_node->next = NULL;
+	new->next = tmp;
+	tmp = new;
 
-	for (i = 0; i < idx; i++)
-		next_node = next_node->next;
-
-	for (i = 0; i < idx - 1; i++)
-		prev_node = prev_node->next;
-
-	new_node->next = next_node;
-	prev_node->next = new_node;
-	return (new_node);
+	return (new);
 }
