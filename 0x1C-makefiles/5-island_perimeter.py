@@ -7,10 +7,16 @@ def island_perimeter(grid):
     """Return the perimeter of the island
     """
     counter = 0
-    for item in grid:
-        for land in item:
-            if land == 1:
-                counter += 1
-    per = (counter - 2) * 2
-    per += (2 * 3)
-    return per
+    for x in range(0, len(grid)):
+        for y in range(0, len(grid[0])):
+            if (grid[x][y] == 1):
+                counter += 4
+                if grid[x - 1][y] == 1:
+                    counter -= 1
+                if grid[x + 1][y] == 1:
+                    counter -= 1
+                if grid[x][y - 1] == 1:
+                    counter -= 1
+                if grid[x][y + 1] == 1:
+                    counter -= 1
+    return counter
