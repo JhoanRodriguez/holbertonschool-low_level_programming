@@ -1,6 +1,6 @@
 #include "search_algos.h"
 /**
- * binary_search - function to print the array where the value will be searched
+ * print_array - function to print the array where the value will be searched
  * @array: array to be searched
  * @left: left value
  * @right: right value
